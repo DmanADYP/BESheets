@@ -12,7 +12,7 @@ import { BE } from "model/BE.model";
     template: `
      <div class="panel panel-default">
             <div class="panel-heading">{{be.user}}</div>
-         <ul>   
+         <ul>   git
             <h4>ID</h4>
                 <li>{{be.id}}</li>
             <h4>Author</h4>

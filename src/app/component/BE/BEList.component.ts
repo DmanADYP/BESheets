@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { BEService } from "service/BE.service";
 import { EmitterService } from "routing/emmitter.service";
 import { BE } from 'model/BE.model'
+import { Subject } from "rxjs/Subject";
 
 
 
@@ -14,6 +15,20 @@ import { BE } from 'model/BE.model'
 @Component({
     selector: 'be-list',
     template: `
+
+<input
+    (keyup)="searchTerm$.next($event.target.value)">
+
+<ul *ngIf="results">
+  <li *ngFor="let result of results | slice:0:9">
+    <a href="{{ model.id }}" target="_blank">
+      {{ model.id }}
+    </a>
+  </li>
+</ul>
+
+
+
         <be-box 
         [editId]="editId" 
         [listId]="listId" 
@@ -29,9 +44,9 @@ selector:'[surround]'
 // Component class
 export class BEListComponent implements OnInit, OnChanges{
      private model =  new BE(new Date(),  '', '','', '', '','', '','', '','', [],'','', '');
- 
      private editing = false;
-
+     private results:Object;
+     private searchTerm$ = new Subject<string>();
     // Local properties
     bes: BE[];
     // Input properties
@@ -39,13 +54,19 @@ export class BEListComponent implements OnInit, OnChanges{
     @Input() editId: string;
 
     // Constructor with injected service
- constructor(private beService: BEService ) {}
+ constructor(private beService: BEService ) {
+
+     this.beService.search(this.searchTerm$)
+     .subscribe(result=> {this.results = result});
+ }
 
     ngOnInit() {
             // Load comments
             this.loadBE()
             console.log(sessionStorage.getItem('User'));
     }
+
+
 
     loadBE() {
         // Get all comments

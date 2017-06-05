@@ -26,10 +26,11 @@ import { userRegisterService } from "service/userRegister.service";
 })
 export class UserFormComponent{
     private model = new Username('');
-   constructor(private userService:userRegisterService ){
-       this.userService.submitUser(this.model);
-
-   }
-
+    
+   constructor(private userService:userRegisterService ){}
+submitUser(){
+    this.userService.submitUser(this.model);
+}
+  
 
 }

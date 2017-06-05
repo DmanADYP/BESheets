@@ -15,6 +15,7 @@ export class BEService {
      constructor (private http: Http) {}
      // private instance variable to hold base url
      private BEUrl = 'http://localhost:3000/posts'; 
+     private  queryUrl: string = '?search=';
 
 
 // Fetch all existing be
@@ -28,7 +29,29 @@ export class BEService {
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
      }
+// Fetch all existing be
+     getBESingle(id:string) : Observable<BE[]> {
 
+         // ...using get request
+         return this.http.get(`${this.BEUrl}/${id}`)
+                        // ...and calling .json() on the response to return data
+                         .map((res:Response) => res.json())
+                         //...errors if any
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+
+     }
+// Search all existing
+search(terms: Observable<string>) {
+    return terms.debounceTime(400)
+      .distinctUntilChanged()
+      .switchMap(term => this.searchEntries(term));
+  }
+
+  searchEntries(term) {
+    return this.http
+        .get(this.BEUrl + this.queryUrl + term)
+        .map(res => res.json());
+  }
 
 // Add a new BE
     addBE (body: Object): Observable<BE[]> {

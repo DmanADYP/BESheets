@@ -31,11 +31,11 @@ let cookielist = Cookie.getAll();
 }
         submitUser(model){
             //this.model = new Username('','');
-        if(this.model._user ==undefined){
+        if(model._user ==undefined){
             return false;
         }else{
-            sessionStorage.setItem('User',this.model._user);
-            console.log(this.model._user);
+            sessionStorage.setItem('User',model._user);
+            console.log(model._user);
            this.parentRouter.navigateByUrl('/comment');
         }
         
