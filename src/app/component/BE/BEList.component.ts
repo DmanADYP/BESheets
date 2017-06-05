@@ -14,6 +14,7 @@ import { Subject } from "rxjs/Subject";
 // Component decorator
 @Component({
     selector: 'be-list',
+    providers:[BEService],
     template: `
 
 <input
@@ -21,8 +22,8 @@ import { Subject } from "rxjs/Subject";
 
 <ul *ngIf="results">
   <li *ngFor="let result of results | slice:0:9">
-    <a href="{{ model.id }}" target="_blank">
-      {{ model.id }}
+    <a href="{{ result.id }}" target="_blank">
+      {{ result.id }}
     </a>
   </li>
 </ul>
@@ -45,6 +46,7 @@ selector:'[surround]'
 export class BEListComponent implements OnInit, OnChanges{
      private model =  new BE(new Date(),  '', '','', '', '','', '','', '','', [],'','', '');
      private editing = false;
+     private temps:BE[];
      private results:Object;
      private searchTerm$ = new Subject<string>();
     // Local properties
@@ -56,14 +58,18 @@ export class BEListComponent implements OnInit, OnChanges{
     // Constructor with injected service
  constructor(private beService: BEService ) {
 
-     this.beService.search(this.searchTerm$)
-     .subscribe(result=> {this.results = result});
+      
  }
 
     ngOnInit() {
             // Load comments
             this.loadBE()
             console.log(sessionStorage.getItem('User'));
+            
+     this.beService.search(this.searchTerm$)
+     .subscribe(result=> {this.results = result
+         , console.log(result)
+        });
     }
 
 

@@ -42,6 +42,7 @@ export class BEService {
      }
 // Search all existing
 search(terms: Observable<string>) {
+    
     return terms.debounceTime(400)
       .distinctUntilChanged()
       .switchMap(term => this.searchEntries(term));
@@ -79,6 +80,6 @@ search(terms: Observable<string>) {
     removeBE (id:string): Observable<BE[]> {
         return this.http.delete(`${this.BEUrl}/${id}`) // ...using put request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+                         .catch((error:any) => Observable.throw(error.json().error || false)); //...errors if any
     }   
 }
