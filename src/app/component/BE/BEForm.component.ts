@@ -6,15 +6,11 @@ import {Observable} from 'rxjs/Rx';
 import { BEService } from "service/BE.service";
 import { EmitterService } from "routing/emmitter.service";
 import { BE } from 'model/BE.model'
-import { NavBarComponent } from "app/component/navbar/navbar.component";
+
 // Component decorator
 @Component({
     selector: 'be-form',
-    template: 
-    `
-     <div>
-        <nav-bar></nav-bar>
-     </div>
+    template: `
       <form (ngSubmit)="submitBE()">
             <div class="form-group">
                 

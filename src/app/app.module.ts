@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from "app/component/about/about.component";
-import { NavBarComponent } from "app/component/navbar/navbar.component";
-
 import { HomeComponent } from "app/component/home/home.component";
 import { routing } from "routing/routing.service";
 import { BEService } from "service/BE.service";
@@ -16,7 +14,7 @@ import { BEListComponent } from "app/component/BE/BEList.component";
 import { BEFormComponent } from "app/component/BE/BEForm.component";
 import { UserLoginComponent } from "app/component/userLogin/userLogin.component";
 import { UserFormComponent } from "app/component/userLogin/userForm.component";
-import { SignupComponent } from "app/component/userSignup/signup.component";
+
 
 
 @NgModule({
@@ -24,14 +22,13 @@ import { SignupComponent } from "app/component/userSignup/signup.component";
     AppComponent,
     AboutComponent,
     HomeComponent,
-    NavBarComponent,
     BEBoxComponent,
     BEFormComponent,
     BEListComponent,
     BEComponent,
     UserLoginComponent,
-    UserFormComponent,
-    SignupComponent
+    UserFormComponent
+
   ],
    exports:[
     BEBoxComponent,

@@ -7,7 +7,7 @@ import { EmitterService } from "routing/emmitter.service";
 import { BE } from 'model/BE.model'
 import { Subject } from "rxjs/Subject";
 
-import { NavBarComponent } from "app/component/navbar/navbar.component";
+
 
 
 
@@ -16,9 +16,7 @@ import { NavBarComponent } from "app/component/navbar/navbar.component";
     selector: 'be-list',
     providers:[BEService],
     template: `
- <div>
-        <nav-bar></nav-bar>
-     </div>
+
 <input
     (keyup)="searchTerm$.next($event.target.value)">
 
