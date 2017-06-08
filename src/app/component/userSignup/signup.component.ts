@@ -6,14 +6,15 @@ import { Observable } from "rxjs/Observable";
 import { routing } from "routing/routing.service";
 
 
+
 @Component({
     
-    selector: 'nav-bar',
+    selector: 'sign-up',
    // moduleId: module.id,
-    templateUrl:`./navbar.component.html` ,
+    templateUrl:`./signup.component.html` ,
   "styles": ["styles.css"],
 })
-export class NavBarComponent implements OnInit{
+export class SignupComponent implements OnInit{
   ngOnInit(): void {
     
   }
