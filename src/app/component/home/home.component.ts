@@ -4,7 +4,7 @@ import { PostsService } from "routing/post.service";
 import { Observable } from "rxjs/Observable";
 //import { User } from "app/model/User.Model"
 import { routing } from "routing/routing.service";
-
+import { NavBarComponent } from "app/component/navbar/navbar.component";
 
 
 @Component({

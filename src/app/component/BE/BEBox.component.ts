@@ -5,11 +5,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { EmitterService } from "routing/emmitter.service";
 import { BEService } from "service/BE.service";
 import { BE } from "model/BE.model";
-
+import { NavBarComponent } from "app/component/navbar/navbar.component";
 // Component decorator
 @Component({
     selector: 'be-box',
     template: `
+    
      <div class="panel panel-default">
             <div class="panel-heading">{{be.user}}</div>
          <ul>   git

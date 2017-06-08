@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { EmitterService } from "routing/emmitter.service";
 import {Router} from '@angular/router';
 
+import { NavBarComponent } from "app/component/navbar/navbar.component";
+
 @Component({
     selector:`my-login`,
     template:`

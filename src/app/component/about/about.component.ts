@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EmitterService } from "routing/emmitter.service";
+import { NavBarComponent } from "app/component/navbar/navbar.component";
 
 @Component({
     selector:'about',
