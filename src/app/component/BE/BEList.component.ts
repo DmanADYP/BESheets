@@ -17,16 +17,6 @@ import { Subject } from "rxjs/Subject";
     providers:[BEService],
     template: `
 
-<input
-    (keyup)="searchTerm$.next($event.target.value)">
-
-<ul *ngIf="results">
-  <li *ngFor="let result of results | slice:0:9">
-    <a href="{{ result.id }}" target="_blank">
-      {{ result.id }}
-    </a>
-  </li>
-</ul>
 
 
 
@@ -44,7 +34,7 @@ selector:'[surround]'
 })
 // Component class
 export class BEListComponent implements OnInit, OnChanges{
-     private model =  new BE(new Date(),  '', '','', '', '','', '','', '','', [],'','', '');
+     private model =  new BE();
      private editing = false;
      private temps:BE[];
      private results:Object;
@@ -54,6 +44,7 @@ export class BEListComponent implements OnInit, OnChanges{
     // Input properties
     @Input() listId: string;
     @Input() editId: string;
+    @Input() submitID:string;
 
     // Constructor with injected service
  constructor(private beService: BEService ) {
@@ -62,8 +53,9 @@ export class BEListComponent implements OnInit, OnChanges{
  }
 
     ngOnInit() {
+        console.log(EmitterService._id);
             // Load comments
-            this.loadBE()
+            this.loadBE(EmitterService._id)
             console.log(sessionStorage.getItem('User'));
             
      this.beService.search(this.searchTerm$)
@@ -72,11 +64,12 @@ export class BEListComponent implements OnInit, OnChanges{
         });
     }
 
+    
 
-
-    loadBE() {
+    loadBE(id:string) {
+      
         // Get all comments
-         this.beService.getBE()
+         this.beService.getOneBE(id)
                            .subscribe(
                                comments => this.bes = comments, //Bind to view
                                 err => {
@@ -88,7 +81,8 @@ export class BEListComponent implements OnInit, OnChanges{
     ngOnChanges(changes:any) {
         // Listen to the 'list'emitted event so as populate the model
         // with the event payload
-        EmitterService.get(this.listId).subscribe((comments:Comment[]) => { this.loadBE()});
-    }
+       // EmitterService.get(this.listId).subscribe((comments:Comment[]) => { this.loadBE()});
+    return this.listId;
+}
 
 }

@@ -7,6 +7,7 @@ import {Injectable, EventEmitter} from '@angular/core';
 export class EmitterService {
     // Event store
     private static _emitters: { [ID: string]: EventEmitter<any> } = {};
+    public static _id:string;
     // Set a new event in the store with a given ID
     // as key
     static get(ID: string): EventEmitter<any> {
@@ -15,4 +16,6 @@ export class EmitterService {
             console.log(this._emitters[ID]);
         return this._emitters[ID];
     }
+    
+    
 }

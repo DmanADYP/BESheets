@@ -13,9 +13,14 @@ import { BEComponent } from "app/component/BE/BE.component";
 import { BEListComponent } from "app/component/BE/BEList.component";
 import { BEFormComponent } from "app/component/BE/BEForm.component";
 import { UserLoginComponent } from "app/component/userLogin/userLogin.component";
-import { UserFormComponent } from "app/component/userLogin/userForm.component";
-
-
+import { UserFormComponent } from "app/component/userLogin/userForm.component"
+import { IonicApp, IonicModule } from 'ionic-angular';
+import { BETableComponent } from "app/component/BE/BETable.component";
+import { ChildComponent } from "app/component/inputOutput/child.component";
+import { ParentComponent } from "app/component/inputOutput/parent.component";
+import { Ng2CompleterModule } from "ng2-completer";
+import { NavBarComponent } from "app/component/navBar/navbar.component";
+import { BeEditComponent } from "app/component/BE/BEEdit.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { UserFormComponent } from "app/component/userLogin/userForm.component";
     BEListComponent,
     BEComponent,
     UserLoginComponent,
-    UserFormComponent
+    UserFormComponent,
+    BETableComponent,
+    ParentComponent,
+    ChildComponent,
+    NavBarComponent,
+    BeEditComponent
 
   ],
    exports:[
@@ -40,8 +50,10 @@ import { UserFormComponent } from "app/component/userLogin/userForm.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
-  ],
+    routing,
+    Ng2CompleterModule
+  //, IonicModule.forRoot(AppComponent) 
+   ],
   providers: [BEService],
   bootstrap: [AppComponent]
 })

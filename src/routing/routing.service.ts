@@ -5,6 +5,7 @@ import { AboutComponent } from "app/component/about/about.component";
 import { BEComponent } from "app/component/BE/BE.component";
 import { BEListComponent } from "app/component/BE/BEList.component";
 import { UserLoginComponent } from "app/component/userLogin/userLogin.component";
+import { BeEditComponent } from "app/component/BE/BEEdit.component";
 
 
 
@@ -19,7 +20,7 @@ const appRoutes : Routes = [
         component:AboutComponent
     },
     {
-        path:'comment',
+        path:'create',
         component:BEComponent
     },
       {
@@ -29,6 +30,10 @@ const appRoutes : Routes = [
       {
         path:'user',
         component:UserLoginComponent
+    },
+    {
+        path:'edit',
+        component:BeEditComponent
     }
 
 ];

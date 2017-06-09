@@ -1,22 +1,2 @@
- <div>
-   
-      <h2>Hello {{name}}</h2>
-      <h5>Valid Users</h5>
-      <!--<span *ngFor="let user of users">
-        {{user}}<br/>
-      </span> <br/>-->
-        <div *ngFor="let emp of users" let i = index>
-      <hr />
-    <h3>{{emp.Employee.IDCard.LastName}}, {{emp.Employee.IDCard.FirstName}}</h3>
-    <hr />
-    <h3>Employee Details</h3>
-    <p>
-        <strong>ID:</strong> {{emp.Employee.IDCard.ID}}<br>
-        <strong>Status:</strong> {{emp.Employee.IDCard.Status}}<br>
-        <strong>Role:</strong> {{emp.Employee.IDCard.Role}}<br>
-        <strong>Citizenship:</strong> {{emp.Employee.IDCard.Citizenship}}<br>
-        <strong>Work Location:</strong> {{emp.Employee.IDCard.WorkLocation}}<br>
-    </p>
-  </div>
-      
-    </div>
+
+      <my-table></my-table>

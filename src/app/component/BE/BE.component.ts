@@ -10,13 +10,14 @@ import {Router} from '@angular/router';
     template: `
         <div>
            
-
-            <be-form [listId]="listId" [editId]="editId"></be-form>
-            <be-list [listId]="listId" [editId]="editId"></be-list>
+            <nav-bar></nav-bar>
+            <be-form [listId]="listId" [editId]="editId" ></be-form>
+            <be-list [listId]="listId" [editId]="editId" ></be-list>
         </div>
     `,
 })
 export class BEComponent { 
+    //   <be-list [listId]="listId" [editId]="editId" ></be-list>
     // Event tracking properties
     private listId = 'BE_COMPONENT_LIST';
     private editId = 'BE_COMPONENT_EDIT';
