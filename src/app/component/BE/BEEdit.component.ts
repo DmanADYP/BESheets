@@ -3,11 +3,13 @@ import { BEService } from "service/BE.service";
 import { EmitterService } from "routing/emmitter.service";
 import { BE } from "model/BE.model";
 import { Observable } from "rxjs/Observable";
+import { NavigationSerivce } from "routing/navigation.service";
 
 @Component({
     selector:'be-edit',
-    providers:[BEService],
+    providers:[BEService,NavigationSerivce],
     template:`
+    <nav-bar></nav-bar>
     <h3 class="well container">Update Record</h3>
 <form #formCtrl="ngForm" class="container" (ngSubmit)="submitBE()" novalidate>
     <div class="form-group">
@@ -86,13 +88,96 @@ import { Observable } from "rxjs/Observable";
         </div>
     </div>
 </form>
+
+
+<div class="container">
+<table class="table table-bordered table-striped table-inverse">
+        <thead>
+            <tr class="bg-primary">
+                <th></th>
+                <th>MONTH 1</th>
+                <th>MONTH 2</th>
+                <th>MONTH 3</th>
+                <th>MONTH 4</th>
+                <th>MONTH 5</th>
+                <th>Q1</th>
+                <th>Q2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="" scope="row">Forcast</th>
+                <td><input type="text" #MonthOneInput (keyup)=onChange(MonthOneInput.value,1) [(ngModel)]="A"/></td>
+                <td><input type="text" #MonthTwoInput (keyup)=onChange(MonthTwoInput.value,2) [(ngModel)]="B"/></td>
+                <td><input type="text" #MonthThreeInput (keyup)=onChange(MonthThreeInput.value,3) [(ngModel)]="C" /></td>
+                <td><input type="text" #MonthFourInput (keyup)=onChange(MonthFourInput.value,4) [(ngModel)]="D" /></td>
+                <td><input type="text" #MonthFiveInput (keyup)=onChange(MonthFiveInput.value,5) [(ngModel)]="E" /></td>
+                <td class="text-primary">{{A+B+C+D+E}}</td>
+                <td class="text-primary">$xx.xxx</td>
+            </tr>
+            <tr>
+                <th scope="row">Actuals</th>
+                <td><input type="text" [(ngModel)]="A"/></td>
+                <td><input type="text" [(ngModel)]="B"/></td>
+                <td><input type="text" [(ngModel)]="C" /></td>
+                <td><input type="text" [(ngModel)]="D" /></td>
+                <td><input type="text" [(ngModel)]="E" /></td>
+                <td class="text-primary">$xx.xxx</td>
+                <td class="text-primary">$xx.xxx</td>
+            </tr>
+            <tr>
+                <th scope="row">Accruals</th>
+                <td><input type="text" [(ngModel)]="A"/></td>
+                <td><input type="text" [(ngModel)]="B"/></td>
+                <td><input type="text" [(ngModel)]="C" /></td>
+                <td><input type="text" [(ngModel)]="D" /></td>
+                <td><input type="text" [(ngModel)]="E" /></td>
+                <td class="text-primary">$xx.xxx</td>
+                <td class="text-primary">$xx.xxx</td>
+            </tr>
+            <tr>
+                <th scope="row">Velocity</th>
+                <td><input type="text" [(ngModel)]="A"/></td>
+                <td><input type="text" [(ngModel)]="B"/></td>
+                <td><input type="text" [(ngModel)]="C" /></td>
+                <td><input type="text" [(ngModel)]="D" /></td>
+                <td><input type="text" [(ngModel)]="E" /></td>
+                <td class="text-primary">$xx.xxx</td>
+                <td class="text-primary">$xx.xxx</td>
+            </tr>
+            <tr class="text-primary">
+                <th scope="row">Gap</th>
+                <td>{{A+B+C}}</td>
+                <td>{{A+B+C}}</td>
+                <td>{{A+B+C}}</td>
+                <td>{{A+B+C}}</td>
+                <td>{{A+B+C}}</td>
+                <td>{{A+B+C}}</td>
+                <td>{{A+B+C}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row text-right">
+        <div class="col-4">
+            <button class="btn btn-info">Cancel</button>
+            <button class="btn btn-info">Update</button>
+            <button class="btn btn-info">Submit</button>
+        </div>
+    </div>
+</div>
     `
 
 })export class BeEditComponent implements OnInit{
-   
+    private A:number=0;
+    private B:number=0;
+    private C:number=0;
+    private D:number=0;
+    private E:number=0;
+    private F:number=0;
+    private G:number=0;
     private model= new BE();
     private editing = true;
-    constructor(private beService: BEService) 
+    constructor(private beService: BEService, private navService:NavigationSerivce) 
     {
 beService.getOtherBE(EmitterService._id)
 .subscribe(result=>
@@ -100,6 +185,31 @@ beService.getOtherBE(EmitterService._id)
 console.log(this.model[0].id);
 
 });
+    }
+    onChange(value,id){
+
+        switch (id) {
+            case 1:
+                this.A = value;
+                break;
+            case 2:
+               this.B = value;
+                break;
+            case 3:
+               this.C = value;
+                break;
+            case 4:
+               this.D = value;
+                break;
+            case 5:
+               this.E = value;
+                break;
+            default:
+
+        }
+
+        this.A = value
+        //alert(id);
     }
  ngOnInit(): void 
     {
@@ -117,14 +227,15 @@ console.log(this.model[0].id);
         beOperation.subscribe(
                                 be => {
                                   
-                                    this.model = new BE();
+                                    this.model;
                                     
                                 }, 
                                 err => {
                                     // Log errors if any
                                     console.log(err);
-                                });
-        
+                                }
+                                );
+      this.navService.NavigateTo('home');  
      }
     
 }
