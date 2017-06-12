@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, Output, EventEmitter } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges, Output, EventEmitter, Renderer } from "@angular/core";
 import { BEService } from "service/BE.service";
 import { BE } from "model/BE.model";
 import { EmitterService } from "routing/emmitter.service";
@@ -10,18 +10,34 @@ selector: 'my-table',
 providers:[BEService],
 templateUrl:'/beTable.component.html'
 
-})export class BETableComponent implements OnInit, OnChanges{
+})export class BETableComponent {
     @Output()notify = new EventEmitter();
     parentRouter:Router;
     bes: BE[];
     private results:Object;
     protected searchStr: string;
     protected captains= [];
+    protected static value;
     // Constructor
      constructor(
-        private beService: BEService,private _router:Router
-        ){}
+        private beService: BEService,private _router:Router, renderer: Renderer
+        ){      
+                //load all data
+                this.loadBE();
+                renderer.listenGlobal('document', 'click', (event) => {
+                this.searchBE();
+                });
+        }
+        //gets value from child and passeses to parents
+        ;
             onChange(value:string){
+             BETableComponent.value = value;
+             this.searchBE();
+        
+        }
+            searchBE(){
+                let value = BETableComponent.value;
+                   console.log(value);
             if(value == '' || value ==undefined){
                 this.loadBE();
             }else{
@@ -33,8 +49,7 @@ templateUrl:'/beTable.component.html'
                 
         
             });}
-        
-        }
+            }
             
             loadBE() {
 
@@ -61,26 +76,10 @@ templateUrl:'/beTable.component.html'
             
             }
             submitID(value:string){
-                EmitterService._id = value;
-
-                console.log(value);
+                //on click go to edit screen
                 this._router.navigateByUrl('/edit');
-                // this.parentRouter.navigateByUrl('/com');
-                this.notify.emit(value);
-            //EmitterService.get(value).emit(value);
             }
-            //: EventEmitter<string>
-        // = new EventEmitter<string>(); 
-            ngOnChanges(changes: SimpleChanges): void {
-                
-            }
-        
-            ngOnInit() {
-            this.loadBE();
             
-                    
-            
-            }
             
 
         }

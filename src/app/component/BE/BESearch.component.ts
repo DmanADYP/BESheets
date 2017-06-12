@@ -14,7 +14,9 @@ export class BESearchComponent{
     protected captains= [];
     constructor(private beService: BEService){}
     @Output() notifyParent: EventEmitter<any> = new EventEmitter();
+    //needs coresponding method on parent side
     onChange(value:string) {
+        //emits the value of the dropdown
         this.notifyParent.emit(value);
     }
     loadBE() 
