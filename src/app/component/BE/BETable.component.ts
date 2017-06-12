@@ -21,67 +21,66 @@ templateUrl:'/beTable.component.html'
      constructor(
         private beService: BEService,private _router:Router
         ){}
-
- 
-
-
+            onChange(value:string){
+            if(value == '' || value ==undefined){
+                this.loadBE();
+            }else{
+            
+            this.beService.getOneBE(value.trim()).subscribe(result => {
+            if (result.length !== 0){
+            this.bes = result
+            }
+                
         
-    onChange(value:string){
-       if(value == '' || value ==undefined){
-            this.loadBE();
-        }else{
+            });}
         
-        this.beService.getOneBE(value.trim()).subscribe(result => {
-        if (result.length !== 0){
-        this.bes = result
         }
             
-    
-        });}
-    
-    }
-    loadBE() {
+            loadBE() {
 
-        this.beService.getBE().subscribe(result => 
-            {
-                 this.bes = result;
-                 if(this.captains.length <=0){
-                    for (let i = 1; i < result.length; i++) {
-                        this.captains.push(result[i].id);
+                this.beService.getBE().subscribe(result => 
+                    {
+                        this.bes = result;
+                        if(this.captains.length <=0){
+                            for (let i = 1; i < result.length; i++) {
+                                this.captains.push(result[i].id);
+                            }
+                        }
                     }
-                 }
+                
+                    
+                    );
             }
-           
+            deleteBE(id:string) {
+                // Call removeBE() from CommenBE to delete comment
+                this.beService.removeBE(id).subscribe(result=>{
+                    result =>this.bes;
+                    this.loadBE();
+            })
+                
             
-            );
-    }
-     deleteBE(id:string) {
-        // Call removeBE() from CommenBE to delete comment
-        this.beService.removeBE(id).subscribe(result=>{result =>this.bes})
-        this.loadBE();
-    
-    }
-    submitID(value:string){
-        EmitterService._id = value;
+            }
+            submitID(value:string){
+                EmitterService._id = value;
 
-        console.log(value);
-        this._router.navigateByUrl('/edit');
-        // this.parentRouter.navigateByUrl('/com');
-        this.notify.emit(value);
-       //EmitterService.get(value).emit(value);
-    }
-     //: EventEmitter<string>
-   // = new EventEmitter<string>(); 
-    ngOnChanges(changes: SimpleChanges): void {
+                console.log(value);
+                this._router.navigateByUrl('/edit');
+                // this.parentRouter.navigateByUrl('/com');
+                this.notify.emit(value);
+            //EmitterService.get(value).emit(value);
+            }
+            //: EventEmitter<string>
+        // = new EventEmitter<string>(); 
+            ngOnChanges(changes: SimpleChanges): void {
+                
+            }
         
-    }
-   
-    ngOnInit() {
-    this.loadBE();
-      
+            ngOnInit() {
+            this.loadBE();
             
-     
-    }
-    
+                    
+            
+            }
+            
 
-}
+        }

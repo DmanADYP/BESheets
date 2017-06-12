@@ -21,6 +21,7 @@ import { ParentComponent } from "app/component/inputOutput/parent.component";
 import { Ng2CompleterModule } from "ng2-completer";
 import { NavBarComponent } from "app/component/navBar/navbar.component";
 import { BeEditComponent } from "app/component/BE/BEEdit.component";
+import { BESearchComponent } from "app/component/BE/BESearch.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BeEditComponent } from "app/component/BE/BEEdit.component";
     ParentComponent,
     ChildComponent,
     NavBarComponent,
-    BeEditComponent
+    BeEditComponent,
+    BESearchComponent
 
   ],
    exports:[
