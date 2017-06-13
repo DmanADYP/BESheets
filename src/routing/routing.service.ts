@@ -6,6 +6,8 @@ import { BEComponent } from "app/component/BE/BE.component";
 import { BEListComponent } from "app/component/BE/BEList.component";
 import { UserLoginComponent } from "app/component/userLogin/userLogin.component";
 import { BeEditComponent } from "app/component/BE/BEEdit.component";
+import { CreateEditComponent } from "app/component/BE/BECreateEdit.component";
+import { BECalcComponent } from "app/component/BE/BECalc.component";
 
 
 
@@ -25,7 +27,7 @@ const appRoutes : Routes = [
     },
     {
         path:'create',
-        component:BEComponent
+        component:CreateEditComponent
     },
       {
         path:'com',
@@ -38,6 +40,10 @@ const appRoutes : Routes = [
     {
         path:'edit',
         component:BeEditComponent
+    },
+    {
+        path:'calc',
+        component:BECalcComponent
     }
 
 ];

@@ -22,6 +22,8 @@ import { Ng2CompleterModule } from "ng2-completer";
 import { NavBarComponent } from "app/component/navBar/navbar.component";
 import { BeEditComponent } from "app/component/BE/BEEdit.component";
 import { BESearchComponent } from "app/component/BE/BESearch.component";
+import { CreateEditComponent } from "app/component/BE/BECreateEdit.component";
+import { BECalcComponent } from "app/component/BE/BECalc.component";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { BESearchComponent } from "app/component/BE/BESearch.component";
     ChildComponent,
     NavBarComponent,
     BeEditComponent,
-    BESearchComponent
+    BESearchComponent,
+    CreateEditComponent,
+    BECalcComponent
 
   ],
    exports:[

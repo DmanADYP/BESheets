@@ -11,8 +11,7 @@ import {Router} from '@angular/router';
         <div>
            
             <nav-bar></nav-bar>
-            <be-form [listId]="listId" [editId]="editId" ></be-form>
-            <be-list [listId]="listId" [editId]="editId" ></be-list>
+           
         </div>
     `,
 })

@@ -1,0 +1,77 @@
+
+<div class="container">
+<table class="table table-bordered table-striped table-inverse">
+        <thead>
+            <tr class="bg-primary">
+                <th></th>
+                <th>MONTH 1</th>
+                <th>MONTH 2</th>
+                <th>MONTH 3</th>
+                <th>MONTH 4</th>
+                <th>MONTH 5</th>
+                <th>Q1</th>
+                <th>Q2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="" scope="row">Forcast</th>
+                <td><input type="number" #MonthOneInput (keyup)=onChange(MonthOneInput.value,1) (click)=onChange(MonthOneInput.value,1) min="0.01" step="0.01" max="2500" value="00.00"  [(ngModel)]="A"/></td>
+                <td><input type="number" #MonthTwoInput (keyup)=onChange(MonthTwoInput.value,2) (click)=onChange(MonthTwoInput.value,2) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="B"/></td>
+                <td><input type="number" #MonthThreeInput (keyup)=onChange(MonthThreeInput.value,3) (click)=onChange(MonthThreeInput.value,3) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="C" /></td>
+                <td><input type="number" #MonthFourInput (keyup)=onChange(MonthFourInput.value,4) (click)=onChange(MonthFourInput.value,4) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="D" /></td>
+                <td><input type="number" #MonthFiveInput (keyup)=onChange(MonthFiveInput.value,5) (click)=onChange(MonthFiveInput.value,5) min="0.01" step="0.01" max="2500" value="00.00"[(ngModel)]="E" /></td>
+                <td class="text-primary">{{Q1}}</td>
+                <td class="text-primary">{{Q2}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Actuals</th>
+                <td><input type="number" #MonthOneInput1 (keyup)=onChange(MonthOneInput1.value,11) (click)=onChange(MonthOneInput1.value,11) min="0.01" step="0.01" max="2500" value="00.00"  [(ngModel)]="A1"/></td>
+                <td><input type="number" #MonthTwoInput1 (keyup)=onChange(MonthTwoInput1.value,21) (click)=onChange(MonthTwoInput1.value,21) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="B1"/></td>
+                <td><input type="number" #MonthThreeInput1 (keyup)=onChange(MonthThreeInput1.value,31) (click)=onChange(MonthThreeInput1.value,31) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="C1" /></td>
+                <td><input type="number" #MonthFourInput1 (keyup)=onChange(MonthFourInput1.value,41) (click)=onChange(MonthFourInput.value1,41) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="D1" /></td>
+                <td><input type="number" #MonthFiveInput1 (keyup)=onChange(MonthFiveInput1.value,51) (click)=onChange(MonthFiveInput.value1,51) min="0.01" step="0.01" max="2500" value="00.00"[(ngModel)]="E1" /></td>
+                <td class="text-primary">{{Q11}}</td>
+                <td class="text-primary">{{Q21}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Accruals</th>
+                <td><input type="number" #MonthOneInput2 (keyup)=onChange(MonthOneInput2.value,12) (click)=onChange(MonthOneInput2.value,12) min="0.01" step="0.01" max="2500" value="00.00"  [(ngModel)]="A2"/></td>
+                <td><input type="number" #MonthTwoInput2 (keyup)=onChange(MonthTwoInput2.value,22) (click)=onChange(MonthOneInput2.value,22)  min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="B2"/></td>
+                <td><input type="number" #MonthThreeInput2 (keyup)=onChange(MonthThreeInput2.value,32) (click)=onChange(MonthOneInput2.value,32) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="C2" /></td>
+                <td><input type="number" #MonthFourInput2 (keyup)=onChange(MonthFourInput2.value,42) (click)=onChange(MonthOneInput2.value,42) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="D2" /></td>
+                <td><input type="number" #MonthFiveInput2 (keyup)=onChange(MonthFiveInput2.value,52) (click)=onChange(MonthOneInput2.value,52) min="0.01" step="0.01" max="2500" value="00.00"[(ngModel)]="E2" /></td>
+                <td class="text-primary">{{Q12}}</td>
+                <td class="text-primary">{{Q22}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Velocity</th>
+                <td><input type="number" #MonthOneInput3 (keyup)=onChange(MonthOneInput3.value,13) (click)=onChange(MonthOneInput3.value,13) min="0.01" step="0.01" max="2500" value="00.00"  [(ngModel)]="A3"/></td>
+                <td><input type="number" #MonthTwoInput3 (keyup)=onChange(MonthTwoInput3.value,23) (click)=onChange(MonthOneInput3.value,23) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="B3"/></td>
+                <td><input type="number" #MonthThreeInput3 (keyup)=onChange(MonthThreeInput3.value,33) (click)=onChange(MonthOneInput3.value,33) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="C3" /></td>
+                <td><input type="number" #MonthFourInput3 (keyup)=onChange(MonthFourInput3.value,43) (click)=onChange(MonthOneInput3.value,43) min="0.01" step="0.01" max="2500" value="00.00" [(ngModel)]="D3" /></td>
+                <td><input type="number" #MonthFiveInput3 (keyup)=onChange(MonthFiveInput3.value,53) (click)=onChange(MonthOneInput3.value,53) min="0.01" step="0.01" max="2500" value="00.00"[(ngModel)]="E3" /></td>
+                <td class="text-primary">{{Q13}}</td>
+                <td class="text-primary">{{Q23}}</td>
+            </tr>
+            <tr class="text-primary">
+                <th scope="row">Gap</th>
+                <td>{{+A+A1+A2+A3}}</td>
+                <td>{{B4}}</td>
+                <td>{{C4}}</td>
+                <td>{{D4}}</td>
+                <td>{{E4}}</td>
+                <td>{{Q4}}</td>
+                <td>{{Q24}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row text-right">
+        <div class="col-4">
+            <button type="submit" class="btn btn-info">Cancel</button>
+            <button type="submit" class="btn btn-info">Update</button>
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </div>
+</div>
+    
