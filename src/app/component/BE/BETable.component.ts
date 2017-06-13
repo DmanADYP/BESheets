@@ -77,6 +77,7 @@ templateUrl:'/beTable.component.html'
             }
             submitID(value:string){
                 //on click go to edit screen
+                EmitterService._id = value;
                 this._router.navigateByUrl('/edit');
             }
             

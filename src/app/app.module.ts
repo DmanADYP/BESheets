@@ -24,6 +24,7 @@ import { BeEditComponent } from "app/component/BE/BEEdit.component";
 import { BESearchComponent } from "app/component/BE/BESearch.component";
 import { CreateEditComponent } from "app/component/BE/BECreateEdit.component";
 import { BECalcComponent } from "app/component/BE/BECalc.component";
+import { BEUpdateComponent } from "app/component/BE/BEUpdate.component";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BECalcComponent } from "app/component/BE/BECalc.component";
     BeEditComponent,
     BESearchComponent,
     CreateEditComponent,
-    BECalcComponent
+    BECalcComponent,
+    BEUpdateComponent
 
   ],
    exports:[

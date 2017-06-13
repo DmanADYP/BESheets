@@ -45,6 +45,15 @@ import { Component } from "@angular/core";
     private  Q13:any='0';
     private  Q23:any='0';
 
+
+    private  A4:string='0';
+    private  B4:string='0';
+    private  C4:string='0';
+    private  D4:string='0';
+    private  E4:string='0';
+    private  Q14:any='0';
+    private  Q24:any='0';
+
     onChange(value:any,id){
         if(value =="0"||value ==""|| value==undefined){
             
@@ -132,15 +141,28 @@ import { Component } from "@angular/core";
         }
         }
         
-        this.Q1 =  +this.A + +this.B+ +this.C+ +this.D+ +this.E;
-        this.Q2 =  +this.A + +this.B+ +this.C+ +this.D+ +this.E;
+        this.Q1 =  (parseFloat(this.A) + parseFloat(this.B)+parseFloat(this.C) + parseFloat(this.D)+ parseFloat(this.E)).toString();
+        this.Q2 =  (parseFloat(this.A) + parseFloat(this.B)+parseFloat(this.C) + parseFloat(this.D)+ parseFloat(this.E)).toString();
 
-        this.Q11 =  +this.A1 + +this.B2+ +this.C2+ +this.D2+ +this.E2;
-        this.Q21 =  +this.A1 + +this.B2+ +this.C2+ +this.D2+ +this.E2;
+        this.Q11 = (parseFloat(this.A1) + parseFloat(this.B1)+parseFloat(this.C1) + parseFloat(this.D1)+ parseFloat(this.E1)).toString();
+        this.Q21 = (parseFloat(this.A1) + parseFloat(this.B1)+parseFloat(this.C1) + parseFloat(this.D1)+ parseFloat(this.E1)).toString();
 
-        this.Q13 =  +this.A3 + +this.B3+ +this.C3+ +this.D3+ +this.E3;
-        this.Q23 =  +this.A3 + +this.B3+ +this.C3+ +this.D3+ +this.E3;
+        this.Q12 =  (parseFloat(this.A2) + parseFloat(this.B2)+parseFloat(this.C2) + parseFloat(this.D2)+ parseFloat(this.E2)).toString();
+        this.Q22 =  (parseFloat(this.A2) + parseFloat(this.B2)+parseFloat(this.C2) + parseFloat(this.D2)+ parseFloat(this.E2)).toString();
         
+        this.Q13 =  (parseFloat(this.A3) + parseFloat(this.B3)+parseFloat(this.C3) + parseFloat(this.D3)+ parseFloat(this.E3)).toString();
+        this.Q23 =  (parseFloat(this.A3) + parseFloat(this.B3)+parseFloat(this.C3) + parseFloat(this.D3)+ parseFloat(this.E3)).toString();
+
+        this.Q14 = (parseFloat(this.Q1)+ parseFloat(this.Q11)+parseFloat(this.Q12)+parseFloat(this.Q13))
+        this.Q24 = (parseFloat(this.Q2)+ parseFloat(this.Q21)+parseFloat(this.Q22)+parseFloat(this.Q23))
+
+
+        this.A4 = (parseFloat(this.A) + parseFloat(this.A1)+parseFloat(this.A2) + parseFloat(this.A3)).toString(); //+this.A+ this.A1+ this.A2 +this.A3;
+        this.B4 = (parseFloat(this.B) + parseFloat(this.B1)+parseFloat(this.B2) + parseFloat(this.B3)).toString(); // +this.B+ this.B1+ this.B2 +this.B3;
+        this.C4 = (parseFloat(this.C) + parseFloat(this.C1)+parseFloat(this.C2) + parseFloat(this.C3)).toString(); //+this.C+ this.C1+ this.C2 +this.C3;
+        this.D4 = (parseFloat(this.D) + parseFloat(this.D1)+parseFloat(this.D2) + parseFloat(this.D3)).toString();//+this.D+ this.D1+ this.D2 +this.D3;
+        this.E4 = (parseFloat(this.E) + parseFloat(this.E1)+parseFloat(this.E2) + parseFloat(this.E3)).toString();
+
     
     }
 }

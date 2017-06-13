@@ -1,5 +1,5 @@
 <nav-bar></nav-bar>
-    <h3 class="well container">Update Record</h3>
+    <h3 class="well container">{{RecordType}} Record</h3>
 <form #formCtrl="ngForm" class="container" (ngSubmit)="submitBE()" novalidate>
     <div class="form-group">
         <!--new code-->
@@ -20,8 +20,7 @@
             </div>
             <div class="col-md-6">
                 <label for="">SERVICE LINE</label>
-                <!--<input type="text" class="form-control" rows="3" placeholder="Service Line" [(ngModel)]="model.id" name="serviceLine"-->
-                    required/>
+         <input type="text" class="form-control" rows="3" placeholder="Service Line" [(ngModel)]="model.id" name="serviceLine" required/>
             </div>
         </div>
     </div>

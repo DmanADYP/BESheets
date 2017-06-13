@@ -8,6 +8,7 @@ import { UserLoginComponent } from "app/component/userLogin/userLogin.component"
 import { BeEditComponent } from "app/component/BE/BEEdit.component";
 import { CreateEditComponent } from "app/component/BE/BECreateEdit.component";
 import { BECalcComponent } from "app/component/BE/BECalc.component";
+import { BEUpdateComponent } from "app/component/BE/BEUpdate.component";
 
 
 
@@ -39,7 +40,7 @@ const appRoutes : Routes = [
     },
     {
         path:'edit',
-        component:BeEditComponent
+        component:BEUpdateComponent
     },
     {
         path:'calc',

@@ -43,7 +43,7 @@ export class BEService {
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
      }
-       getOtherBE(id:string) : Observable<BE> {
+      getOtherBE(id:string) : Observable<BE> {
 
          // ...using get request
          return this.http.get('http://localhost:3000/posts/?id='+id
